@@ -39,6 +39,10 @@ const restaurant = {
   }) {
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, ${ing3}`)
+  }
 };
 
 
@@ -55,7 +59,42 @@ console.log(...newWayArr);
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
 
+//Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
 
+//join multiple arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu)
+
+
+//Iterables: arrays, strings, maps, sets but NOT objects
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str); //writes it ou in individual elements
+console.log()
+
+//Real-world example
+// const ingredients = [prompt('Lets\'s make pasta! Ingredient 1?'), prompt('Lets\'s make pasta! Ingredient 2?'), prompt('Lets\'s make pasta! Ingredient 3?')]
+
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+//Objects
+const newRestaurant = {
+  founded: 19985,
+  ...restaurant,
+  founder: 'Guiseppe'
+};
+console.log(newRestaurant);
+
+const restaurantCopy = {
+  ...restaurant
+};
+restaurantCopy.name = 'Restorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
 
 /*
 /////////////////////////////////////////////////
